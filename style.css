@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+.navbar {
+    background-color: #ffffff !important;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 25px !important;
+}
+
+.navbar-brand img {
+    width: 35px !important;
+    height: 35px !important;
+}
+
+.active {
+    font-weight: bold !important;
+}
+
+.home-top-image{
+    background-image: url(assets/magic-wood.jpg);
+    height: 80vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.rent-pads-section {
+    position: relative;
+    /* Add relative positioning to create a stacking context */
+    height: 80vh;
+    width: 100%;
+    background-image: url("assets/pads.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
+
+.rent-pads-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0)10%, rgba(0, 0, 0, 0));
+    /* Adjust the colors and transparency as needed */
+    z-index: 1;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 0;
+    left: 12%;
+    width: 20%;
+    /* Match the width of the black part of the gradient */
+    height: 100%;
+    transform: translateX(-50%);
+    /* Center the text container horizontally */
+    z-index: 2;
+    /* Place the text above the gradient */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-overlay p {
+    color: white;
+    /* Text color */
+    font-size: 18px;
+    /* Adjust the font size as needed */
+    text-align: center;
+}
+
+
+
+.custom-button {
+    background-color: #00c890;
+    border-radius: 30px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    padding: 10px 30px;
+    font-size: 12px;
+    text-decoration: none;
+    border-style: none;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #00c890;
+
+}
+
+.custom-button:hover {
+    background-color: #ffffff;
+    color: #00c890;
+    border: 1px solid #00c890;
+}
+
+.custom-button:active {
+    background-color: #00c890;
+    color: #ffffff;
+}
+
+.navbar-nav {
+    width: 100%;
+    justify-content: end;
+}
+
+.dropdown-menu[data-bs-popper] {
+    left: -70px !important;
+}
+
+.topos-title {
+    font-size: 4rem !important;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 14px;
+}
+
+.card-section {
+    background-color: #f7f7f7;
+}
+
+
+.flexbox-card {
+    /* width: 350px; */
+    min-width: 350px;
+    min-height: 400px;
+    /* margin: 30px; */
+    border-radius: 2%;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 3px 3px 3px #d9d9d9;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+}
+
+.topo-card-top {
+    max-width: 100%;
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.card-title {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+
+.card-content {
+    position: absolute;
+    text-align: center;
+    background-color: #ffffff;
+    bottom: -80px;
+    width: 100%;
+
+}
+
+.flexbox-card:hover {
+    transform: translateY(-10px);
+}
+
+.flexbox-card:hover .card-content {
+    transform: translateY(-100px);
+    transition: transform 0.5s ease;
+}
+
+.flexbox-card .card-content {
+    transition: transform 0.5s ease;
+}
+
+.pad-card-top {
+    max-width: 100%;
+    height: 350px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+label {
+    display: block;
+    font:
+        1rem 'Fira Sans',
+        sans-serif;
+        z-index: 2;
+        padding-bottom: 57px;
+    color: #ffffff;
+}
+
+input{
+    margin-bottom: 50px!important;
+    margin-left: 10px!important;
+    margin-right: 10px!important;
+    z-index: 2;
+    padding: 6px;
+    border-radius: 3px;
+    border: none
+
+}
+
+.header {
+    position: relative;
+    height: 60vh;
+    width: 100%;
+    background-image: url("assets/pads.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0)10%, rgba(0, 0, 0, 0));
+    /* Adjust the colors and transparency as needed */
+    z-index: 1;
+}
+
+.option-button {
+    top: 0;
+    z-index: 2;
+    margin-bottom: 49px;
+}
+
+.find-button {
+    top: 0;
+    z-index: 2;
+    margin-bottom: 49px;
+    padding-left: 10px;
+}
+
+.btn-lg{
+    padding: 3px!important;
+}
+
+.mw-top-image{
+    background-image: url(assets/magic-wood.jpg);
+    height: 80vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
