@@ -59,26 +59,62 @@ const toposArray = [
 let htmlToposCode = ``;
 let toposCardContainer = document.getElementById("topos-card-container");
 
+function createTopoCard(topo){
+  let cardDiv = document.createElement("div");
+  cardDiv.className = "col-12 col-md-4";
+
+  let flexboxCardDiv = document.createElement("div");
+  flexboxCardDiv.className = "flexbox-card mx-2 my-1";
+
+  let topoCardTopDiv = document.createElement("div");
+  topoCardTopDiv.className = "topo-card-top";
+  topoCardTopDiv.style.backgroundImage = `url(${topo.pictureUrl})`;
+
+  let cardContentDiv = document.createElement("div");
+  cardContentDiv.className = "card-content";
+
+  let cardTitle = document.createElement("h5");
+  cardTitle.className = "card-title";
+  cardTitle.textContent = topo.title;
+
+  let cardText = document.createElement("p");
+  cardText.className = "card-text pb-5 px-2";
+  cardText.textContent = topo.text;
+
+  let cardPrice = document.createElement("div");
+  cardPrice.className = "card-price";
+
+  let visitButton = document.createElement("a");
+  visitButton.href = topo.buttonLink;
+  visitButton.className = "custom-button";
+  visitButton.textContent = "Visit";
+
+  cardContentDiv.appendChild(cardTitle);
+  cardContentDiv.appendChild(cardText);
+  cardPrice.appendChild(visitButton);
+  cardContentDiv.appendChild(cardPrice);
+
+  flexboxCardDiv.appendChild(topoCardTopDiv);
+  flexboxCardDiv.appendChild(cardContentDiv);
+
+  cardDiv.appendChild(flexboxCardDiv);
+
+  return cardDiv;
+}
+
+
 if(toposCardContainer !=null){
   toposArray.forEach(function (topo) {
-    htmlToposCode += `
-    <div class="col-12 col-md-4">
-      <div class="flexbox-card mx-2 my-1">
-        <div class="topo-card-top" style="background-image: url(${topo.pictureUrl})"></div>
-        <div class="card-content">
-          <h5 class="card-title">${topo.title}</h5>
-          <p class="card-text pb-5 px-2">
-            ${topo.text}
-          </p>
-          <div class="card-price">
-            <a href="${topo.buttonLink}" class="custom-button">Visit</a>
-          </div>
-        </div>
-      </div>
-    </div>`
+    while (toposCardContainer.firstChild) {
+      toposCardContainer.removeChild(toposCardContainer.firstChild);
+    }
+  
+    toposArray.forEach(function (topo) {
+      let topoCard = createTopoCard(topo); 
+      toposCardContainer.appendChild(topoCard); 
+    });
   })
 
-  toposCardContainer.innerHTML = htmlToposCode;
 }
 
 //end
