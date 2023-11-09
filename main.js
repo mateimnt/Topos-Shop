@@ -56,7 +56,7 @@ const toposArray = [
   }
 ];
 
-let htmlToposCode = ``;
+
 let toposCardContainer = document.getElementById("topos-card-container");
 
 function createTopoCard(topo){
@@ -166,32 +166,64 @@ const rentPadsArray = [
   }
 ];
 
-let htmlRentPadsCode = ``;
 let padsCardContainer = document.getElementById("pads-card-container");
 
 
+function createPadsCard(pad){
+  let cardDiv = document.createElement("div");
+  cardDiv.className = "col-12 col-md-4";
+
+  let flexboxCardDiv = document.createElement("div");
+  flexboxCardDiv.className = "flexbox-card mx-2 my-1";
+
+  let padsCardTopDiv = document.createElement("div");
+  padsCardTopDiv.className = "pad-card-top";
+  padsCardTopDiv.style.backgroundImage = `url(${pad.pictureUrl})`;
+
+  let cardContentDiv = document.createElement("div");
+  cardContentDiv.className = "card-content";
+
+  let cardTitle = document.createElement("h5");
+  cardTitle.className = "card-title";
+  cardTitle.textContent = pad.title;
+
+  let cardText = document.createElement("p");
+  cardText.className = "card-text";
+  cardText.textContent = pad.size;
+
+  let cardPrice = document.createElement("p");
+  cardPrice.textContent = pad.price;
+
+  let buyButton = document.createElement("a");
+  buyButton.href = pad.buttonLink;
+  buyButton.className = "custom-button";
+  buyButton.textContent = "Add to cart";
+
+  cardContentDiv.appendChild(cardTitle);
+  cardContentDiv.appendChild(cardText);
+  cardContentDiv.appendChild(cardPrice);
+  cardContentDiv.appendChild(buyButton);
+
+  flexboxCardDiv.appendChild(padsCardTopDiv);
+  flexboxCardDiv.appendChild(cardContentDiv);
+
+  cardDiv.appendChild(flexboxCardDiv);
+
+  return cardDiv;
+}
+
+
 if(padsCardContainer !=null){
-
-
-rentPadsArray.forEach(function(pad) {
-  htmlRentPadsCode += `
-    <div class="col-12 col-xl-4">
-        <div class="flexbox-card mx-2 my-4">
-            <div class="pad-card-top" style="background-image: url(${pad.pictureUrl})">
-            </div>
-            <div class="card-content">
-                <h5 class="card-title">${pad.title}</h5>
-                <p class=" card-text">${pad.size}</p>
-                <p>${pad.price}</p>
-                <a href="#" class="custom-button">Buy</a>
-            </div>
-        </div>
-    </div>
-  `
-})
-
-
-padsCardContainer.innerHTML = htmlRentPadsCode;
+  rentPadsArray.forEach(function (pad) {
+    while (padsCardContainer.firstChild) {
+      padsCardContainer.removeChild(padsCardContainer.firstChild);
+    }
+  
+    rentPadsArray.forEach(function (pad) {
+      let padsCard = createPadsCard(pad); 
+      padsCardContainer.appendChild(padsCard); 
+    });
+  })
 
 }
 //end
