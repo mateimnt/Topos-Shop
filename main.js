@@ -146,7 +146,7 @@ const rentPadsArray = [
   {
     id: 4,
     pictureUrl: "assets/beal.jpg",
-    title: "Black Diamond",
+    title: "Beal",
     size: "Small",
     price: "5 €"
   },
@@ -228,34 +228,32 @@ if(padsCardContainer !=null){
 }
 //end
 
-// Change choose size button text with the chosen size
-
+// Show only the cards that have the size selected by the user
 let sizeBtns = document.querySelectorAll(".dropdown-item");
 
 if (padsCardContainer != null) {
 sizeBtns.forEach(function(btn){
   btn.addEventListener("click", (e) => {
-    let htmlRentPadsCode = "";
-    rentPadsArray.forEach(function(pad) {
-      if(btn.innerText == pad.size){
-          htmlRentPadsCode += `
-            <div class="col-12 col-xl-4">
-                <div class="flexbox-card mx-2 my-4">
-                    <div class="pad-card-top" style="background-image: url(${pad.pictureUrl})">
-                    </div>
-                    <div class="card-content">
-                        <h5 class="card-title">${pad.title}</h5>
-                        <p class=" card-text">${pad.size}</p>
-                        <p>${pad.price}</p>
-                        <a href="#" class="custom-button">Buy</a>
-                    </div>
-                </div>
-            </div>
-          `
-      }
-      
-    })
-    padsCardContainer.innerHTML = htmlRentPadsCode;
+    
+    let filteredPadsArray = rentPadsArray.filter(function (pad) {
+      return pad.size === btn.innerText;
+    });
+
+    while (padsCardContainer.firstChild) {
+      padsCardContainer.removeChild(padsCardContainer.firstChild);
+    }
+    
+    if (btn.innerText === "All") {
+      filteredPadsArray = rentPadsArray;
+    }
+
+    filteredPadsArray.forEach(function (pad) {
+    let padsCard = createPadsCard(pad);
+    padsCardContainer.appendChild(padsCard);
+    });
+    
   })
 })
 }
+//end
+
