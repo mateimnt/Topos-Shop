@@ -130,7 +130,7 @@
 
 .flexbox-card {
     /* width: 350px; */
-    min-width: 350px;
+    /* min-width: 350px; */
     min-height: 400px;
     /* margin: 30px; */
     border-radius: 2%;
@@ -218,6 +218,11 @@ input{
     background-size: cover;
     background-position: center;
 }
+
+.rent-pads-title{
+    color: #ffffff;
+}
+
 
 .header::before {
     content: "";

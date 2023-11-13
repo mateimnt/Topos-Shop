@@ -171,7 +171,7 @@ let padsCardContainer = document.getElementById("pads-card-container");
 
 function createPadsCard(pad){
   let cardDiv = document.createElement("div");
-  cardDiv.className = "col-12 col-md-4";
+  cardDiv.className = "col-12 col-lg-4 col-sm-6";
 
   let flexboxCardDiv = document.createElement("div");
   flexboxCardDiv.className = "flexbox-card mx-2 my-1";
